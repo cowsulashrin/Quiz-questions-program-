@@ -1,0 +1,46 @@
+print("Welcome to the quiz program!")
+name = input("What's your name? ")
+print(f"Hello, {name}! Let's start the quiz.\n")
+
+score = 0
+
+questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Paris", "London", "Rome"],
+        "answer": "B"
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Leonardo da Vinci", "Michelangelo", "Raphael", "Caravaggio"],
+        "answer": "A"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["Earth", "Saturn", "Jupiter", "Uranus"],
+        "answer": "C"
+    },
+    {
+        "question": "Which programming language is used for this quiz?",
+        "options": ["Java", "Python", "C++", "JavaScript"],
+        "answer": "B"
+    },
+    {
+        "question": "What is the chemical symbol for gold?",
+        "options": ["Ag", "Au", "Hg", "Pb"],
+        "answer": "B"
+    }
+]
+
+for i, q in enumerate(questions, start=1):
+    print(f"\nQuestion {i}: {q['question']}")
+    for idx, option in zip("ABCD", q['options']):
+        print(f"{idx}) {option}")
+    user_answer = input("Choose your answer (A/B/C/D): ").strip().upper()
+
+    if user_answer == q['answer']:
+        score += 1
+    else:
+        print(f"Sorry, the correct answer is {q['answer']}")
+
+print(f"\nQuiz over, {name}! Your final score is {score} out of {len(questions)}")
